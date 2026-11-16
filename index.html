@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Loop</title>
+    <script>
+      (function () {
+        var t = localStorage.getItem('loop.theme') || 'dark';
+        var r = t === 'system' ? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark') : t;
+        document.documentElement.dataset.theme = r;
+        document.write('<style>html,body{height:100%;margin:0;background:' + (r === 'light' ? '#eef1f6' : '#0b0c0e') + ';color:' + (r === 'light' ? '#15181d' : '#f4f5f6') + ';font-family:system-ui,sans-serif}</style>');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
